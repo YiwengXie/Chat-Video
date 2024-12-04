@@ -598,12 +598,6 @@ class GroundedSAM2Predictor:
                     else:
                         question = f"Describe the appearance of the {category} in detail."
 
-                    # object_attributes = self.captioner.ask(object_region, question)
-                    # object_attributes = (
-                    #     category
-                    #     + " "
-                    #     + object_attributes.replace("\n", "").lower()
-                    # )
                     object_attributes = self.captioner.generate(object_region, question)
                     object_motion = self.dynamic_des(track_rois, category)
                     tracklet.set_motion(object_motion)

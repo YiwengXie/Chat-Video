@@ -160,8 +160,8 @@ class VideoObjectTracker:
                 'pred_scores': pred_scores,
                 'pred_labels': pred_labels,
                 'pred_bboxes': pred_bboxes,
-                'frame_captions': [],  # 如果有captions数据，可在此填充
-                # 'pred_masks': []  # 如果有masks数据，可在此填充
+                'frame_captions': [],
+                # 'pred_masks': []
             }
             
             return result
@@ -264,7 +264,6 @@ class VideoObjectTracker:
 
             objects_count = key_masks_per_step.update_masks(tracking_annotation_dict=last_masks_per_step, iou_threshold=0.8, objects_count=objects_count)
             
-            # 这个函数似乎没必要
             if len(key_masks_per_step.labels) == 0:
                 print(f"No object detected in the frame, skipping frame {start_frame_idx}")
                 continue

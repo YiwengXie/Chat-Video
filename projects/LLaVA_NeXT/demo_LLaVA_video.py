@@ -17,7 +17,7 @@ from llava.conversation import conv_templates
 warnings.filterwarnings("ignore")
 
 class LLaVAVideoDescriber:
-    def __init__(self, max_frames=16, pretrained_path="/data/junke_dont_remove/model/llava-onevision-qwen2-0.5b-ov", model_name="llava_qwen", device="cuda", device_map="auto"):
+    def __init__(self, max_frames=16, pretrained_path="lmms-lab/llava-onevision-qwen2-0.5b-ov", model_name="llava_qwen", device="cuda", device_map="auto"):
         self.pretrained_path = pretrained_path
         self.model_name = model_name
         self.device = device
