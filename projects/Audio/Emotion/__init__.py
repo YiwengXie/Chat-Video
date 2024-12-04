@@ -1,0 +1,1 @@
+from .models import Wav2Vec2ForSpeechClassification

@@ -1,0 +1,34 @@
+vqa_root: './LOCAL_DATASET/blip/downstream/coco' #followed by train2014/
+vg_root: './LOCAL_DATASET/blip/downstream/VG'  #followed by image/
+train_files: ['vqa_train','vqa_val','vg_qa']
+ann_root: 'annotation'
+
+# set pretrained as a file path or an url
+pretrained: './OUTPUT/BLIP/BLIP_timesformer_epoch10_imgbs2880_vidbs640_lr7e-5_lrdecay0.85_web10m_generated/checkpoint_09.pth'
+task_type: "image_vqa"
+
+# size of vit model; base or large
+encoder_name: 'timesformer'
+cls_on: True
+batch_size_train: 8
+batch_size_test: 16 
+vit_grad_ckpt: False
+vit_ckpt_layer: 0
+init_lr: 2e-5
+
+image_size: 480
+
+k_test: 128
+inference: 'rank'
+
+enable_mae: False
+mask_ratio: 0.75
+aux_mask_ratio: 0.75
+mae_weight: 10.
+
+# optimizer
+weight_decay: 0.05
+decay_pos: True
+optim_step: 1
+min_lr: 0
+max_epoch: 10

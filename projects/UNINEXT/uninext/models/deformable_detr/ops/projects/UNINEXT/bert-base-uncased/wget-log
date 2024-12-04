@@ -1,0 +1,4 @@
+--2024-08-13 17:09:28--  https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt
+Resolving huggingface.co (huggingface.co)... 104.244.43.208, 2a03:2880:f111:83:face:b00c:0:25de
+Connecting to huggingface.co (huggingface.co)|104.244.43.208|:443... failed: Connection timed out.
+Connecting to huggingface.co (huggingface.co)|2a03:2880:f111:83:face:b00c:0:25de|:443... failed: Network is unreachable.

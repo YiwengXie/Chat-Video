@@ -1,0 +1,37 @@
+image_root: './LOCAL_DATASET/blip/downstream'
+ann_root: 'annotation'
+dataset: 'flickr'
+
+task_type: image_retrieval
+contrast_type: 'blip'
+# set pretrained as a file path or an url
+# pretrained: 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model_base_retrieval_coco.pth'
+pretrained: './OUTPUT/BLIP/BLIP_timesformer_epoch10_imgbs2880_vidbs640_lr7e-5_lrdecay0.85_web10m_generated/checkpoint_09.pth'
+
+encoder_name: 'timesformer'
+cls_on: True
+
+batch_size_train: 16
+batch_size_test: 32
+vit_grad_ckpt: False
+vit_ckpt_layer: 0
+init_lr: 1e-5
+
+enable_mae: False
+mask_ratio: 0.75
+aux_mask_ratio: 0.75
+mae_weight: 10.
+
+image_size: 384
+queue_size: 57600
+alpha: 0.4
+k_test: 256
+negative_all_rank: True
+
+# optimizer
+weight_decay: 0.05
+optim_step: 1
+decay_pos: True
+min_lr: 0
+max_epoch: 10
+

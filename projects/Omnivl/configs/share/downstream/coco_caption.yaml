@@ -1,0 +1,41 @@
+image_root: './LOCAL_DATASET/blip/downstream/coco'
+ann_root: 'annotation'
+coco_gt_root: 'annotation/coco_gt'
+dataset: 'caption_coco'
+
+task_type: image_caption
+# set pretrained as a file path or an url
+# pretrained: 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model*_base_caption.pth'
+pretrained: './OUTPUT/BLIP/BLIP_timesformer_epoch10_imgbs2880_vidbs640_lr7e-5_lrdecay0.85_web10m_generated/checkpoint_09.pth'
+
+# size of vit model; base or large
+encoder_name: 'timesformer'
+cls_on: True
+input_length: 16
+temporal_stride: 2
+
+vit_grad_ckpt: False
+vit_ckpt_layer: 0
+
+batch_size: 16
+init_lr: 1e-5
+
+enable_mae: False
+mask_ratio: 0.75
+aux_mask_ratio: 0.75
+mae_weight: 10.
+
+image_size: 384
+# generation configs
+max_length: 20  
+min_length: 5
+num_beams: 3
+prompt: 'a picture of '
+
+# optimizer
+weight_decay: 0.05
+optim_step: 1
+decay_pos: True
+min_lr: 0
+max_epoch: 10
+

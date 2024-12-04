@@ -1,0 +1,54 @@
+image_root: './LOCAL_DATASET/blip/downstream/videodownstream/msrvtt_ret/videos'
+ann_root: 'annotation'
+train_ann: ['./LOCAL_DATASET/blip/downstream/videodownstream/data/msrvtt_ret/txt/new_train.json', './LOCAL_DATASET/blip/downstream/videodownstream/data/msrvtt_ret/txt/new_val2.json']
+val_ann: './LOCAL_DATASET/blip/downstream/videodownstream/data/msrvtt_ret/txt/new_val.json'
+test_ann: './LOCAL_DATASET/blip/downstream/videodownstream/data/msrvtt_ret/txt/new_test.json'
+dataset: 'msrvtt'
+
+# set pretrained as a file path or an url
+# pretrained: 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model_base_retrieval_coco.pth'
+pretrained: './OUTPUT/BLIP/BLIP_timesformer_epoch10_imgbs2880_vidbs640_lr7e-5_lrdecay0.85_web10m_generated/checkpoint_09.pth'
+# size of vit model; base or large
+
+task_type: 'video_retrieval'
+contrast_type: 'blip'
+encoder_name: 'timesformer'
+share_weights: True
+cls_on: True
+inflate: False
+batch_size_train: 2
+batch_size_test: 2
+vit_grad_ckpt: True
+vit_ckpt_layer: 0
+init_lr: 5e-6
+optim_step: 1
+
+# vit: 'large'
+# batch_size_train: 16
+# batch_size_test: 32
+# vit_grad_ckpt: True
+# vit_ckpt_layer: 12
+# init_lr: 5e-6
+
+image_size: 384
+max_words: 40
+input_length: 16
+temporal_stride: 2
+video_fmt: '.mp4'
+ensemble_n_clips: 1
+
+enable_mae: False
+mask_ratio: 0.75
+aux_mask_ratio: 0.75
+mae_weight: 10.
+
+queue_size: 57600
+alpha: 0.4
+k_test: 256
+negative_all_rank: True
+
+# optimizer
+weight_decay: 0.05
+decay_pos: True
+min_lr: 0
+max_epoch: 6

@@ -1,0 +1,46 @@
+image_root: './LOCAL_DATASET/blip/downstream/videodownstream/youcook2_caption/video_clips/train_val'
+
+train_ann: './LOCAL_DATASET/blip/downstream/videodownstream/data/youcook2_caption/txt/youcookii_train.json'
+val_ann: './LOCAL_DATASET/blip/downstream/videodownstream/data/youcook2_caption/txt/youcookii_val.json'
+test_ann: './LOCAL_DATASET/blip/downstream/videodownstream/data/youcook2_caption/txt/youcookii_val.json'
+
+coco_gt_root: './LOCAL_DATASET/blip/downstream/videodownstream/data/youcook2_caption/txt/youcookii_val.json'
+
+dataset: 'video_captioning'
+task_type: video_caption
+# set pretrained as a file path or an url
+# pretrained: 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model*_base_caption.pth'
+pretrained: './OUTPUT/BLIP/BLIP_timesformer_epoch10_imgbs2880_vidbs640_lr7e-5_lrdecay0.85_web10m_generated/checkpoint_09.pth'
+
+prompt: ''
+
+# size of vit model; base or large
+encoder_name: 'timesformer'
+cls_on: True
+vit_grad_ckpt: False
+vit_ckpt_layer: 0
+batch_size: 1
+init_lr: 1e-5
+
+image_size: 384
+ensemble_n_clips: 1
+input_length: 32
+temporal_stride: 4
+
+enable_mae: False
+mask_ratio: 0.75
+aux_mask_ratio: 0.75
+mae_weight: 10.
+
+# generation configs
+max_length: 30 #46
+min_length: 1 #2
+num_beams: 1
+
+# optimizer
+weight_decay: 0.05
+optim_step: 1
+decay_pos: True
+min_lr: 0
+max_epoch: 15
+
